@@ -1,4 +1,8 @@
 body {
-  background-color: rgb(58, 3, 109);
+  background-color: rgb(206, 203, 209);
   color: rgb(235, 227, 227);
+}
+
+li {
+ list-style: none; 
 }
