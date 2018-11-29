@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Emporium</title>
+  <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/icons.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+</head>
+<body>
+  <header>
+    <nav>
+    </nav>
+  </header>
+  <main>
+    <h2>Search Results</h2>
+    <ul class="search-results">
+      <% searchResults.forEach(book => { %>
+        <li data-book-id="<%= book.isbn %>">
+          <div class="book-container">
+            <img src=<%= book.image_url %> alt=<%= book.title %> title=<%= book.title %>>
+            <section>
+              <h3><%= book.title %></h3>
+              <span><%= book.author %></span>
+              <p><%= book.description %></p>
+            </section>
+          </div>
+        </li>
+        <% }) %>
+    </ul>
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>
