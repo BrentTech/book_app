@@ -49,10 +49,11 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 //constructors/models
 function Book(info) {
-  this.image_url = 'https://i.imgur.com/J5LVHEL.jpg'; //this is temporary and will need to vet the image url
+  this.image_url = info.imageLinks.thumbnail || 'https://i.imgur.com/J5LVHEL.jpg' ;
   this.title = info.title || 'No title available';
-  this.author = info.author || 'No author listed';
+  this.author = info.authors || 'No author listed';
   this.description = info.description || 'No summary provide';
+  this.isbn = info.industryIdentifiers[0].identifier || 'No ISBN available';
   console.log('THIS ojbect', this);
 }
 
@@ -66,7 +67,7 @@ function createSearch (req, res) {
   console.log('request', req.body);
   console.log('requested search', req.body.search);
 
-  //sam might have just used 0 and 1 for example, might need to re do as REDUCE or as FOREACH
+  //we get an array back from search page of [search words , search value] ie [puppies, title], that is why we used [1] and [0]
   if (req.body.search[1] === 'title') { url += `+intitle:${req.body.search[0]}`; }
   if (req.body.search[1] === 'author') { url += `+inauthor:${req.body.search[0]}`; }
 
