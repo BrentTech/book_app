@@ -14,22 +14,16 @@ const app = express();
 // application middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
-// app.use(express.static('public/styles')) //I think we decided this wasn't the fix, it was how it was referenced in the index file
 
 // set view
 app.set('view engine', 'ejs')
 
-// Error handler
+
+
 function handleError(err, res) {
   console.error(err);
-  if (res) res.status(404).send('Uh-oh, the gremlings have gotten into the code again');
+  if (res) res.status(404).render('pages/error');
 }
-
-// view routes
-app.get('/', (request, response) => {
-  response.render('pages/index');
-})
-
 
 //api routes
 // renders the search form
@@ -46,6 +40,9 @@ app.get('*', (request, response) => response.status(404).send('This route does n
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 //Helper Functions
+function newSearch (req, res) {
+  res.render('pages/index');
+}
 
 //constructors/models
 function Book(info) {
@@ -57,15 +54,10 @@ function Book(info) {
   console.log('THIS ojbect', this);
 }
 
-function newSearch (req, res) {
-  res.render('index');
-}
-
 function createSearch (req, res) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
-
-  console.log('request', req.body);
-  console.log('requested search', req.body.search);
+  // console.log('request', req.body);
+  // console.log('requested search', req.body.search);
 
   //we get an array back from search page of [search words , search value] ie [puppies, title], that is why we used [1] and [0]
   if (req.body.search[1] === 'title') { url += `+intitle:${req.body.search[0]}`; }
