@@ -20,10 +20,19 @@ app.set('view engine', 'ejs')
 
 
 
+// function handleError(err, res) {
+//   console.error(err);
+//   if (res) res.status(404).render('pages/error');
+// }
+
+
 function handleError(err, res) {
   console.error(err);
-  if (res) res.status(404).render('pages/error');
+  res.render('pages/error', {error: err});
 }
+//   res.render('pages/error', {error: error});
+
+
 
 //api routes
 // renders the search form
