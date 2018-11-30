@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../layout/head') %>
+</head>
+<body>
+  <header>
+    <%- include('../layout/header') %>
+  </header>
+  <main>
+    <section class="book-view container">
+      <ul id="book-list">
+        <li class="book-item" data-id="<%= book.id %>">
+          <img src=<%= book.image_url %>
+          <p>ISBN: <%= book.isbn %></p>
+          <h4>Title: <%= book.title %></h4>
+          <p>Author: <%= book.author %></p>
+          <p>Desciption: <%= book.description %></p>
+          <p>Bookshelf: <%= book.bookshelf %></p>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>

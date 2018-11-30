@@ -32,6 +32,7 @@ function handleError(err, res) {
 
 //api routes
 app.get('/', homePage);
+app.get('/book/:book_id', getDetail);
 app.get('/new_search', newSearch);
 
 
@@ -59,6 +60,17 @@ function homePage (req, res) {
       res.render('pages/index', {results: results.rows})
     })
     // .then(results => res.render('pages/index', {bookTotal: results.length}))
+    .catch(handleError);
+}
+
+function getDetail (req, res) {
+  let SQL = 'SELECT * FROM saved_book_table WHERE id=$1;';
+  let values = [req.params.book_id];
+
+  return client.query(SQL, values)
+    .then( (result) => {
+      return res.render('books/detail', {book: result.rows[0]})
+    })
     .catch(handleError);
 }
 
