@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  <title>Book Emporium</title>
-  <link href="/styles/reset.css" rel="stylesheet" type="text/css">
-  <link href="/styles/base.css" rel="stylesheet" type="text/css">
-  <link href="/styles/layout.css" rel="stylesheet" type="text/css">
-  <link href="/styles/modules.css" rel="stylesheet" type="text/css">
-  <link href="/styles/icons.css" rel="stylesheet" type="text/css">
-
-</head>
-<body>
-  <h1>Error</h1>
-    <p><%= error %></p>
-  <h2>Uh-oh, the gremlings have gotten into the code again</h2>
-  <img src="https://media.giphy.com/media/ERCTG4DPik4W4/giphy.gif" alt="Gremlins Playing" title="Gremlins Playing">
-</body>
+  <head>
+    <%- include('../layout/head') %>
+  </head>
+  <body>
+    <header>
+        <%- include('../layout/header') %>
+    </header>
+    <main>
+      <h1>Error</h1>
+        <p><%= error %></p>
+      <h2>Uh-oh, the gremlings have gotten into the code again</h2>
+      <img src="https://media.giphy.com/media/ERCTG4DPik4W4/giphy.gif" alt="Gremlins Playing" title="Gremlins Playing">
+    </main>
+  </body>
 </html>
