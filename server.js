@@ -32,6 +32,7 @@ function handleError(err, res) {
 
 //api routes
 app.get('/', homePage);
+app.get('/book/:book_id', getDetail);
 app.get('/new_search', newSearch);
 
 
@@ -60,6 +61,10 @@ function homePage (req, res) {
     })
     // .then(results => res.render('pages/index', {bookTotal: results.length}))
     .catch(handleError);
+}
+
+function getDetail (req, res) {
+
 }
 
 //constructors/models
