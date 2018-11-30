@@ -20,6 +20,9 @@
               <span><%= book.author %></span>
               <p><%= book.description %></p>
             </section>
+            <form action="/book/<%= book.id%>" method="get">
+              <button type="submit">Book Details</button>
+            </form>
           </div>
         </li>
         <% }) %>
