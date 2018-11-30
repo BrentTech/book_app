@@ -35,8 +35,11 @@ function handleError(err, res) {
 
 
 //api routes
+// render home
+app.get('/', homePage);
+
 // renders the search form
-app.get('/', newSearch);
+app.get('/new_search', newSearch);
 
 //Creates a new search to the Google book API
 app.post('/searches', createSearch);
@@ -50,7 +53,11 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 //Helper Functions
 function newSearch (req, res) {
-  res.render('pages/index');
+  res.render('pages/searches/new');
+}
+
+function homePage (req, res) {
+  res.render('pages/index')
 }
 
 //constructors/models
@@ -65,8 +72,6 @@ function Book(info) {
 
 function createSearch (req, res) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
-  // console.log('request', req.body);
-  // console.log('requested search', req.body.search);
 
   //we get an array back from search page of [search words , search value] ie [puppies, title], that is why we used [1] and [0]
   if (req.body.search[1] === 'title') { url += `+intitle:${req.body.search[0]}`; }
