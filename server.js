@@ -54,7 +54,11 @@ function homePage (req, res) {
   let SQL = 'SELECT * FROM saved_book_table;';
 
   return client.query(SQL)
-    .then(results => res.render('pages/index', {results: results.rows}))
+    .then(results => {
+      // console.log(results.rows.length)
+      res.render('pages/index', {results: results.rows})
+    })
+    // .then(results => res.render('pages/index', {bookTotal: results.length}))
     .catch(handleError);
 }
 

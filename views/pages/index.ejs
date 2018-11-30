@@ -9,6 +9,7 @@
   </header>
   <main>
     <h2>Search Results</h2>
+    <p>Total Books <%= results.length %></p>
     <ul class="search-results">
       <% results.forEach(book => { %>
         <li data-book-id="<%= book.isbn %>">
