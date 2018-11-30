@@ -3,9 +3,10 @@
 // app dependencies
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 
 // load environment variables from .env files
-require ('dotenv').config(); //note to self: have to run npm i dotenv so this doesn't error when you nodemon
+require ('dotenv').config();
 
 // app setup
 const PORT = process.env.PORT;
@@ -18,28 +19,21 @@ app.use(express.static('public'));
 // set view
 app.set('view engine', 'ejs')
 
-
-
-// function handleError(err, res) {
-//   console.error(err);
-//   if (res) res.status(404).render('pages/error');
-// }
+//database setup
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('error', err => console.error(err));
 
 
 function handleError(err, res) {
   console.error(err);
   res.render('pages/error', {error: err});
 }
-//   res.render('pages/error', {error: error});
-
-
 
 //api routes
-// render home
 app.get('/', homePage);
-
-// renders the search form
 app.get('/new_search', newSearch);
+
 
 //Creates a new search to the Google book API
 app.post('/searches', createSearch);
@@ -57,7 +51,15 @@ function newSearch (req, res) {
 }
 
 function homePage (req, res) {
-  res.render('pages/index')
+  let SQL = 'SELECT * FROM saved_book_table;';
+
+  return client.query(SQL)
+    .then(results => {
+      // console.log(results.rows.length)
+      res.render('pages/index', {results: results.rows})
+    })
+    // .then(results => res.render('pages/index', {bookTotal: results.length}))
+    .catch(handleError);
 }
 
 //constructors/models
