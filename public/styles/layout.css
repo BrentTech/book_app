@@ -1,38 +1,118 @@
-  main {
-    background-color: rgb(153, 151, 151);
-    font-size: 12px;
-    width: 100%;
-    margin: auto;
-  }
+header {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+}
 
-  h3 {
-    background-color: rgb(66, 63, 63);
-    width: 100%;
-    font-size: 24px;
-    text-align: center;
-  }
+h1 {
+  font-size: 3em;
+  color: whitesmoke;
+  margin: auto;
+}
 
-  form {
-    width: 100%;
-    margin: auto;
-  }
+main {
+  background-color: rgb(134, 133, 133);
+  font-size: 12px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
 
-  fieldset{
-    background-color: rgb(207, 207, 207);
-    color: rgb(20, 20, 20);
-    font-size: 18px;
-  }
+main .saved-books {
+  display: flex;
+  /* position: fixed; */
+  justify-content: center;
+  background-color: rgb(66, 63, 63);
+}
 
-  button {
-    width: 100%;
-    height: 50px;
-    background-color: black;
-    border-radius: 5px;
-    color: white;
-    display: center;
-    font-size: 18px;
-  }
+main .saved-books h2,
+main .saved-books span {
+  display: inline;
+  font-size: 2.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-  img {
-    border-radius: 5px;
-  }
+main .saved-books span {
+  background-color: rgb(189, 185, 185);
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 2%;
+}
+
+main ul li {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 100%;
+  background-color: rgb(189, 185, 185);
+  margin: 3em auto;
+  box-shadow: 2px 2px 4px black;
+  border: 1px solid rgb(66, 63, 63);
+  padding: 5%;
+}
+
+h3 {
+  font-size: 2.4em;
+  text-align: center;
+  margin-top: 8%;
+  text-shadow: 2px 2px rgb(66, 63, 63);
+}
+
+form {
+  width: 100%;
+  margin: auto;
+}
+
+fieldset{
+  background-color: rgb(207, 207, 207);
+  color: rgb(20, 20, 20);
+  font-size: 18px;
+}
+
+button {
+  width: 10em;
+  height: 50px;
+  background-color: black;
+  border-radius: 5px;
+  color: whitesmoke;
+  display: center;
+  font-size: 1.6em;
+  border: none;
+  margin-top: 30%;
+}
+
+main ul li img {
+  border-radius: 5px;
+  width: 100%;
+}
+
+main ul li div section p {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  color: rgb(66, 63, 63);
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 2%;
+}
+  
+article {
+  padding: 30px;
+  width: 55em;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+article h2 {
+  font-weight: 500;
+  font-size: 28px;
+}
