@@ -34,10 +34,12 @@ function handleError(err, res) {
 app.get('/', homePage);
 app.get('/book/:book_id', getDetail);
 app.get('/new_search', newSearch);
+// app.get('/add', showForm); //i showForm will be the jquery to unhide the attribute
 
 
 //Creates a new search to the Google book API
 app.post('/searches', createSearch);
+app.post('/add', addBook);
 
 
 //catchall
@@ -74,6 +76,24 @@ function getDetail (req, res) {
     .catch(handleError);
 }
 
+// function showForm (req, res) {
+//   //code to unhide att
+// }
+
+function addBook (req, res) {
+  // console.log('made it to addbook function');
+  // console.log('req', req);
+  // let tempisbn = parseInt(isbn)
+  let {title, author, isbn, image_url, description, bookself} = req.body;
+
+  let SQL = 'INSERT INTO saved_book_table(title, author, isbn, image_url, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6);';
+  let values = [title, author, isbn, image_url, description, bookself];
+
+  return client.query(SQL, values)
+    .then(res.redirect('/'))
+    .catch(handleError);
+}
+
 //constructors/models
 function Book(info) {
   this.image_url = info.imageLinks.thumbnail || 'https://i.imgur.com/J5LVHEL.jpg' ;
@@ -81,7 +101,7 @@ function Book(info) {
   this.author = info.authors || 'No author listed';
   this.description = info.description || 'No summary provide';
   this.isbn = info.industryIdentifiers[0].identifier || 'No ISBN available';
-  console.log('THIS ojbect', this);
+  // console.log('THIS ojbect', this);
 }
 
 function createSearch (req, res) {
@@ -96,4 +116,6 @@ function createSearch (req, res) {
     .then(results => res.render('pages/searches/show', {searchResults: results}))
     .catch(error => handleError(error, res));
 }
+
+
 

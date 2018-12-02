@@ -19,6 +19,26 @@
               <span><%= book.author %></span>
               <p><%= book.description %></p>
             </section>
+            <form>
+              <button type= 'submit'>Select this book</button>
+            </form>
+            <!-- this is here we need to add the attributes for hiding and unhiding -->
+            <form action="/add" method="post">
+              <fieldset>
+                <!-- Title -->
+                <input type="text" name="title" value="Title: <%= book.title %>">
+                <!-- Author -->
+                <input type="text" name="author" value="Author: <%= book.author %>">
+                <!-- ISBN -->
+                <input type="text" name="isbn" value="ISBN: <%= book.isbn %>">
+                <!-- image url -->
+                <input type="text" name="image_url" value="<%= book.image_url %>">
+                <!-- description -->
+                <input type="text" name="description" value="Description: <%= book.description %>">
+                <input type="text" name="bookself" value="Bookshelf: ">
+                <button type="submit">Add to Saved List</button>
+              </fieldset>
+            </form>
           </div>
         </li>
         <% }) %>
