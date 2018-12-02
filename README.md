@@ -75,8 +75,8 @@ Finish time:
 Actual time needed to complete: 
 -----
 Number and name of feature: lab 12 Feature 4: Saving a new book to the collection
-Estimate of time needed to complete: 
-Start time: 
+Estimate of time needed to complete: 1.5 hrs
+Start time: 2:00
 Finish time: 
 Actual time needed to complete: 
 -----
