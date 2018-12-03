@@ -69,16 +69,20 @@ Finish time: 12:00
 Actual time needed to complete: 1hr
 -----
 Number and name of feature: lab 12 Feature 3: Modifying API-provided book details
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 2 hrs
+12-2-18
+Start time: 10:30
+Finish time: 11:15
+12-3-18
 Start time: 
-Finish time: 
+end time: 
 Actual time needed to complete: 
 -----
 Number and name of feature: lab 12 Feature 4: Saving a new book to the collection
 Estimate of time needed to complete: 1.5 hrs
 Start time: 2:00
-Finish time: 
-Actual time needed to complete: 
+Finish time: 3:30
+Actual time needed to complete: 1.5 hrs
 -----
 Number and name of feature: lab 12 Feature 5: Consistent rendering
 Estimate of time needed to complete: 

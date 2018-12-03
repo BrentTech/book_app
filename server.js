@@ -4,6 +4,7 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 // load environment variables from .env files
 require ('dotenv').config();
@@ -15,6 +16,16 @@ const app = express();
 // application middleware
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
+
+//middleware to handle PUT and DELETE
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    // look in urlencoded POST bodies and delete it
+    let method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}))
 
 // set view
 app.set('view engine', 'ejs')
@@ -35,11 +46,9 @@ app.get('/', homePage);
 app.get('/book/:book_id', getDetail);
 app.get('/new_search', newSearch);
 // app.get('/add', showForm); //i showForm will be the jquery to unhide the attribute
-
-
-//Creates a new search to the Google book API
 app.post('/searches', createSearch);
 app.post('/add', addBook);
+app.put('/update/:book_id',updateBook);
 
 
 //catchall
@@ -91,6 +100,17 @@ function addBook (req, res) {
 
   return client.query(SQL, values)
     .then(res.redirect('/'))
+    .catch(handleError);
+}
+
+function updateBook (req, res) {
+  let {title, author, isbn, image_url, description, bookself} = req.body;
+
+  let SQL = 'UPDATE saved_book_table SET titl=$1, author=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7;';
+  let values = [title, author, isbn, image_url, description, bookself, req.params.book_id];
+
+  return client.query(SQL, values)
+    .then(res.redirect(`/book/${req.params.task_id}`))
     .catch(handleError);
 }
 
