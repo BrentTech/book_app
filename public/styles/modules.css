@@ -100,3 +100,34 @@
   position: relative;
   z-index: 1000;
 }
+
+/* saved books sub-header */
+
+main .saved-books {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(66, 63, 63);
+}
+
+main .saved-books h2,
+main .saved-books span {
+  display: inline;
+  font-size: 2.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+main .saved-books span {
+  background-color: rgb(189, 185, 185);
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 2%;
+}
+
+/* search form sub-header */
+main #search-sub-header {
+  height: 9%;
+}

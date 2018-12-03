@@ -22,31 +22,6 @@ main {
   margin: auto;
 }
 
-main .saved-books {
-  display: flex;
-  /* position: fixed; */
-  justify-content: center;
-  background-color: rgb(66, 63, 63);
-}
-
-main .saved-books h2,
-main .saved-books span {
-  display: inline;
-  font-size: 2.3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-main .saved-books span {
-  background-color: rgb(189, 185, 185);
-  border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  margin: 2%;
-}
-
 main ul li {
   display: flex;
   justify-content: center;
@@ -65,17 +40,6 @@ h3 {
   text-align: center;
   margin-top: 8%;
   text-shadow: 2px 2px rgb(66, 63, 63);
-}
-
-form {
-  width: 100%;
-  margin: auto;
-}
-
-fieldset{
-  background-color: rgb(207, 207, 207);
-  color: rgb(20, 20, 20);
-  font-size: 18px;
 }
 
 button {
@@ -115,4 +79,53 @@ article {
 article h2 {
   font-weight: 500;
   font-size: 28px;
+}
+
+/* form styling */
+
+form {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+fieldset{
+  background-color: rgb(207, 207, 207);
+  color: rgb(20, 20, 20);
+  width: 100%;
+  height: 75px;
+  border-radius: 5px;
+  margin: 20px 0px 20px 0px;
+}
+
+label span{
+  display: inline-block;
+  margin: 25.5px 10% 0% 5%;
+  font-size: 24px
+}
+
+label #author {
+  margin-right: 6%;
+}
+
+label input {
+  height: 15px;
+  width: 15px;
+}
+
+
+form #search-input {
+  width: 100%;
+  height: 70px;
+  border-radius: 5px;
+  margin: 20px 0px 20px 0px;
+  font-size: 24px;
+}
+
+form #search-button {
+  margin-top: 20px;
+  font-size: 24px;
+  width: 100%;
 }
