@@ -1,0 +1,30 @@
+<form action="/update/<%= book.id %>" method="post">
+  <fieldset>
+    <input type="hidden" name="_method" value="put">
+    <label for="title">
+      <span>Title</span>
+      <input type="text" name="title" value="<%= book.title %>">
+    </label>
+    <label for="title">
+      <span>Author</span>
+      <input type="text" name="author" value="<%= book.author %>">
+      </label>
+    <label for="title">
+      <span>ISBN</span>
+      <input type="text" name="isbn" value="<%= book.isbn %>">
+    </label>
+    <label for="title">
+      <span>Bookcover URL</span>
+      <input type="text" name="image_url" value="<%= book.image_url %>">
+    </label>
+    <label for="title">
+      <span>Description</span>
+      <input type="text" name="description" value="Description: <%= book.description %>">
+    </label>
+    <label for="title">
+      <span>Bookshelf</span>
+      <input type="text" name="bookself" value="<%= book.bookshelf %>">
+    </label>
+    <button type="submit">Update Book</button>
+  </fieldset>
+</form>
