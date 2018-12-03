@@ -18,9 +18,9 @@
           <p>Author: <%= book.author %></p>
           <p>Desciption: <%= book.description %></p>
           <p>Bookshelf: <%= book.bookshelf %></p>
-          <form>
+          <!-- <form>
             <button type= 'submit'>Update Details</button>
-          </form>
+          </form> -->
           <form action="/delete/<%= book.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <button type= 'submit'>Delete Book</button>

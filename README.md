@@ -97,9 +97,9 @@ Start time:
 Finish time: 
 Actual time needed to complete: 
 -----
-Number and name of feature: 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+Number and name of feature: update and delete (lab 13)
+Estimate of time needed to complete: 4 hrs
+Start time: 9:00
+Finish time: 12:00
+Actual time needed to complete: 3hrs
 -----
