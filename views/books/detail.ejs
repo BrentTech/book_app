@@ -8,6 +8,7 @@
     <%- include('../layout/header') %>
   </header>
   <main>
+    <h2>Book Details</h2>
     <section class="book-view container">
       <ul id="book-list">
         <li class="book-item" data-id="<%= book.id %>">
@@ -17,6 +18,29 @@
           <p>Author: <%= book.author %></p>
           <p>Desciption: <%= book.description %></p>
           <p>Bookshelf: <%= book.bookshelf %></p>
+          <form>
+            <button type= 'submit'>Update Details</button>
+          </form>
+          <form action="/delete" method="post">
+            <button type= 'submit'>Delete Book</button>
+          </form>
+          <!-- if updating book: this is here we need to add the attributes for hiding and unhiding -->
+          <form action="/update/<% book.id %>" method="post">
+            <fieldset>
+              <!-- Title -->
+              <input type="text" name="title" value="Title: <%= book.title %>">
+              <!-- Author -->
+              <input type="text" name="author" value="Author: <%= book.author %>">
+              <!-- ISBN -->
+              <input type="text" name="isbn" value="ISBN: <%= book.isbn %>">
+              <!-- image url -->
+              <input type="text" name="image_url" value="<%= book.image_url %>">
+              <!-- description -->
+              <input type="text" name="description" value="Description: <%= book.description %>">
+              <input type="text" name="bookself" value="Bookshelf: ">
+              <button type="submit">Update Book</button>
+            </fieldset>
+          </form>
         </li>
       </ul>
     </section>
