@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%- include('../layout/head') %>
+    <%- include('../layout/head2') %>
 </head>
 <body>
   <header>
@@ -21,23 +21,38 @@
           <form>
             <button type= 'submit'>Update Details</button>
           </form>
-          <form action="/delete" method="post">
+          <form action="/delete/<%= book.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
             <button type= 'submit'>Delete Book</button>
           </form>
           <!-- if updating book: this is here we need to add the attributes for hiding and unhiding -->
-          <form action="/update/<% book.id %>" method="post">
+          <form action="/update/<%= book.id %>" method="post">
             <fieldset>
-              <!-- Title -->
-              <input type="text" name="title" value="Title: <%= book.title %>">
-              <!-- Author -->
-              <input type="text" name="author" value="Author: <%= book.author %>">
-              <!-- ISBN -->
-              <input type="text" name="isbn" value="ISBN: <%= book.isbn %>">
-              <!-- image url -->
-              <input type="text" name="image_url" value="<%= book.image_url %>">
-              <!-- description -->
-              <input type="text" name="description" value="Description: <%= book.description %>">
-              <input type="text" name="bookself" value="Bookshelf: ">
+              <input type="hidden" name="_method" value="put">
+              <label for="title">
+                <span>Title</span>
+                <input type="text" name="title" value="<%= book.title %>">
+              </label>
+              <label for="title">
+                <span>Author</span>
+                <input type="text" name="author" value="<%= book.author %>">
+                </label>
+              <label for="title">
+                <span>ISBN</span>
+                <input type="text" name="isbn" value="<%= book.isbn %>">
+              </label>
+              <label for="title">
+                <span>Bookcover URL</span>
+                <input type="text" name="image_url" value="<%= book.image_url %>">
+              </label>
+              <label for="title">
+                <span>Description</span>
+                <input type="text" name="description" value="Description: <%= book.description %>">
+              </label>
+              <label for="title">
+                <span>Bookshelf</span>
+                <input type="text" name="bookself" value="<%= book.bookshelf %>">
+              </label>
               <button type="submit">Update Book</button>
             </fieldset>
           </form>
