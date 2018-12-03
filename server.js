@@ -49,6 +49,7 @@ app.get('/new_search', newSearch);
 app.post('/searches', createSearch);
 app.post('/add', addBook);
 app.put('/update/:book_id',updateBook);
+app.delete('/delete/:book_id', deleteBook);
 
 
 //catchall
@@ -103,14 +104,23 @@ function addBook (req, res) {
     .catch(handleError);
 }
 
-function updateBook (req, res) {
+function updateBook (req, res) {  
   let {title, author, isbn, image_url, description, bookself} = req.body;
 
-  let SQL = 'UPDATE saved_book_table SET titl=$1, author=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7;';
+  let SQL = 'UPDATE saved_book_table SET title=$1, author=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7;';
   let values = [title, author, isbn, image_url, description, bookself, req.params.book_id];
+  
+  return client.query(SQL, values)
+    .then(res.redirect(`/book/${req.params.book_id}`))
+    .catch(handleError);
+}
+
+function deleteBook (req, res) {
+  let SQL = 'DELETE FROM saved_book_table WHERE id=$1;';
+  let values = [req.params.book_id];
 
   return client.query(SQL, values)
-    .then(res.redirect(`/book/${req.params.task_id}`))
+    .then(res.redirect('/'))
     .catch(handleError);
 }
 
@@ -121,7 +131,6 @@ function Book(info) {
   this.author = info.authors || 'No author listed';
   this.description = info.description || 'No summary provide';
   this.isbn = info.industryIdentifiers[0].identifier || 'No ISBN available';
-  // console.log('THIS ojbect', this);
 }
 
 function createSearch (req, res) {
