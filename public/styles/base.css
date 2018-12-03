@@ -1,8 +1,19 @@
 body {
-  background-color: rgb(206, 203, 209);
-  color: rgb(235, 227, 227);
+  color: whitesmoke;
+  height: 100%;
 }
 
-li {
- list-style: none; 
+html {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  overflow: scroll;
+  padding-top: 90px;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 0 !important;
 }

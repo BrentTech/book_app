@@ -8,9 +8,9 @@
       <%- include('../../layout/header') %>
     </header>
     <main>
-      <h3>Search by Title or Author</h3>
+        <div class="saved-books" id="search-sub-header"><h2>Search by Title or Author</h2></div>
       <form action="/searches" method="post">
-        <input type="text" name="search" placeholder="Look for an Author" required>
+        <input type="text" name="search" placeholder="Find Books!" id="search-input" required>
         <fieldset>
           <label for="title">
             <span>Title</span>
@@ -19,11 +19,11 @@
         </fieldset>
         <fieldset>
           <label for="author">
-            <span>Author</span>
+            <span id="author">Author</span>
             <input type="radio" name="search" value="author" required>
           </label>
         </fieldset>
-        <button type="submit">Search the Google Books API</button>
+        <button type="submit" id="search-button">Search the Google Books API</button>
       </form>
     </main>
   </body>
