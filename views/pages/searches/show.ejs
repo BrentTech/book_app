@@ -26,16 +26,30 @@
             <form action="/add" method="post">
               <fieldset>
                 <!-- Title -->
-                <input type="text" name="title" value="Title: <%= book.title %>">
+                <label for="title">
+                  <span>Title</span>
+                  <input type="text" name="title" value="<%= book.title %>">
+                </label>
                 <!-- Author -->
-                <input type="text" name="author" value="Author: <%= book.author %>">
+                <label for="author">
+                  <span>Author</span>
+                  <input type="text" name="author" value="<%= book.author %>">
                 <!-- ISBN -->
-                <input type="text" name="isbn" value="ISBN: <%= book.isbn %>">
+                <label for="isbn">
+                  <span>ISBN</span>
+                  <input type="text" name="isbn" value="<%= book.isbn %>">
                 <!-- image url -->
-                <input type="text" name="image_url" value="<%= book.image_url %>">
+                <label for="image_url">
+                  <span>Image URL</span>
+                  <input type="text" name="image_url" value="<%= book.image_url %>">
                 <!-- description -->
-                <input type="text" name="description" value="Description: <%= book.description %>">
-                <input type="text" name="bookself" value="Bookshelf: ">
+                <label for="description">
+                  <span>Description</span>
+                  <input type="text" name="description" value="<%= book.description %>">
+                <!-- bookshelf -->
+                <label for="bookshelf">
+                  <span>Bookshelf</span>
+                  <input type="text" name="bookself" value="<%= book.bookshelf %>">
                 <button type="submit">Add to Saved List</button>
               </fieldset>
             </form>
